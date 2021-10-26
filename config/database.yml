@@ -1,0 +1,29 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: 'postgres'
+  username: 'vedant'
+  password: '12345'
+  host: localhost
+  port: 5432
+
+
+
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: Talent_portfolio
+#   pool: 5
+#   username: vedant
+#   password:
+#   timeout: 5000
+
+# development:
+#   <<: *default
+#   database: postgresql
+#   username: vedant
+#   password: '12345'
