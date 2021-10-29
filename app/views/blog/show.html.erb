@@ -1,0 +1,30 @@
+<h1>Blog</h1>
+<h3><%= @blog.title %></h3>
+
+<p><%= @blog.body %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_blog_path(@blog) %></li>
+  <li><%= link_to "Destroy", blog_path(@blog),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+</ul>
+
+<h2>Comments</h2>
+<% @blog.comments.each do |comment| %>
+    <p>
+    <strong>Comment:</strong>
+    <%= comment.comment %>
+  </p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_with url: blog_comments_path(@blog) do |form| %>
+ 
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

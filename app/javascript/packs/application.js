@@ -13,3 +13,6 @@ import "js/bootstrap_js_files"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+require("trix")
+require("@rails/actiontext")
