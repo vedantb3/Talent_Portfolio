@@ -17,16 +17,69 @@
   <% if alert %>
     <p class="alert alert-danger"><%= alert %></p>
   <% end %>
-  <p class="navbar-text float-right">
-  <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-  <% end %>
-  </p>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #91d1ff;">
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Navbar brand -->
+    <a class="navbar-brand me-2" href="http://localhost:3000/">
+      <strong>Talent Portfolio</strong>
+    </a>
+
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarButtonsExample"
+      aria-controls="navbarButtonsExample"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog/3">Dashboard</a>
+        </li>
+      </ul>
+      
+      <!-- Left links -->
+
+      <div class="d-flex align-items-center">
+        <% if user_signed_in? %>    
+          <%= link_to 'Create Blog', new_blog_path, class: "btn btn-primary me-3"%>
+          <%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-primary me-3" %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary me-3"  %>
+        <% else %>  
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary me-3" %>
+          <%= link_to "Login", new_user_session_path, class: "btn btn-primary me-3"  %>
+        <%end%>
+        <button type="button" class="btn btn-primary me-3">
+          Sign up for free
+        </button>
+        <a
+          class="btn btn-dark px-3"
+          href="https://github.com/mdbootstrap/mdb-ui-kit"
+          role="button"
+          ><i class="fab fa-github"></i
+        ></a>
+      </div>
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
     <%= yield %>
   </body>
 </html>

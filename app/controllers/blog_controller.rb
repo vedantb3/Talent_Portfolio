@@ -13,7 +13,7 @@ class BlogController < ApplicationController
   def create
     @blog= Blog.new(blog_params)
 
-    if @blog.save!
+    if @blog.save
       redirect_to blog_path(@blog)
     else
       redirect_to request.referer, errors: @blog.errors.full_messages

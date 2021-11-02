@@ -1,59 +1,3 @@
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
-  <!-- Container wrapper -->
-  <div class="container">
-    <!-- Navbar brand -->
-    <a class="navbar-brand me-2" href="https://mdbgo.com/">
-      <strong>Talent Portfolio</strong>
-    </a>
-
-    <!-- Toggle button -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarButtonsExample"
-      aria-controls="navbarButtonsExample"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarButtonsExample">
-      <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard</a>
-        </li>
-      </ul>
-      <!-- Left links -->
-
-      <div class="d-flex align-items-center">
-        <%= link_to 'Create Blog', new_blog_path, class: "btn btn-primary me-3"%>
-        <% if user_signed_in? %>    
-          <%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-primary me-3" %>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary me-3"  %>
-        <%end%>  
-        <button type="button" class="btn btn-primary me-3">
-          Sign up for free
-        </button>
-        <a
-          class="btn btn-dark px-3"
-          href="https://github.com/mdbootstrap/mdb-ui-kit"
-          role="button"
-          ><i class="fab fa-github"></i
-        ></a>
-      </div>
-    </div>
-    <!-- Collapsible wrapper -->
-  </div>
-  <!-- Container wrapper -->
-</nav>
-<!-- Navbar -->
-
-
 
 <main>
   <section class="py-5 text-center container">
@@ -80,3 +24,48 @@
   <% end %>
 </ul>
 
+
+
+<!-- Editable table -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+    Blogs
+  </h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2"
+        ><a href="#!" class="text-success"
+          ><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a
+      ></span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <thead>
+          <tr>
+            <th class="text-center">Title</th>
+            <th class="text-center">Description</th>                        
+            <th class="text-center">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @blogs.each do |blog| %>
+          <tr>
+            <td class="pt-3-half" ><%= link_to blog.title, blog %></td>
+            <td class="pt-3-half" ><%= blog.body %></td>                       
+            <td>
+              <span class="table-remove"
+                ><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+                  Remove
+                </button></span
+              >
+              <span class="table-remove"
+                ><%= link_to "Destroy", blog_path(@blogs) , method: :delete,
+                data: { confirm: "Are you sure?"} ,class: "btn btn-danger btn-rounded btn-sm my-0" %></span
+              >
+            </td>
+          </tr>   
+        <% end %>         
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->
