@@ -18,9 +18,8 @@
                     <div class="form-outline flex-fill mb-0">                     
                       <% if @user.image.attached? %>
                         <img src="<%=(url_for(@user.image))%>" height="auto" width="50%" alt="Avatar" style="width:40%" class="img-thumbnail">
-                      <%else%>
-                        <img src="https://www.w3schools.com/howto/img_avatar.png" height="auto" width="50%" alt="Avatar" style="width:40%" class="img-thumbnail">  
                       <%end%>
+                      <%= f.file_field :image , class:"form-control"%>
                     </div>
                   </div>  
 

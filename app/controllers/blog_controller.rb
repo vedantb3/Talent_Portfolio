@@ -1,9 +1,7 @@
 class BlogController < ApplicationController
   before_action :set_blog, only: [:show]
   def index
-   
-    @search = Blog.search(params[:q])
-    @blogs = @search.result
+    @search = current_user.blogs
   end
 
   def new
@@ -12,6 +10,7 @@ class BlogController < ApplicationController
 
   def create
     @blog= Blog.new(blog_params)
+    @blog.user = current_user
 
     if @blog.save
       redirect_to blog_path(@blog)
@@ -48,7 +47,7 @@ class BlogController < ApplicationController
   
   private  
     def blog_params
-      params.require(:blog).permit(:title, :body)
+      params.require(:blog).permit(:title, :body, :blogpic)
     end
 
     # Use callbacks to share common setup or constraints between actions.

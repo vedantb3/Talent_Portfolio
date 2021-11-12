@@ -75,10 +75,7 @@
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example4cd">Profile Picture</label> 
-                    <%=f.file_field :image , class:"form-control"%>
-                    <% if @user.image.attached? %>
-                      <image src="<%=(url_for(@user.image))%>"
-                    <%end%>
+                    <%=f.file_field :image , class:"form-control"%>                   
                     </div>
                   </div>  
 

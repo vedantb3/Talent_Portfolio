@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  after_action :add_account
+  # after_action :add_account
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -60,11 +60,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  protected
+  # protected
 
-  def add_account
-    if resource.persisted? # user is created successfuly
-      UserMailer.welcome_email(@user).deliver_now
-    end
-  end
+  # def add_account
+    
+  #   if user.create # user is created successfuly
+  #     UserMailer.welcome_email(@user).deliver_now
+  #   end
+  # end
 end

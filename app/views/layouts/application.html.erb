@@ -48,7 +48,7 @@
           <a class="nav-link" href="http://localhost:3000/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="blog/3">Dashboard</a>
+          <a class="nav-link" href="home/index">Dashboard</a>
         </li>
       </ul>
       
@@ -59,19 +59,11 @@
           <%= link_to 'Create Blog', new_blog_path, class: "btn btn-primary me-3"%>
           <%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-primary me-3" %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary me-3"  %>
+          <%= image_tag(current_user.user_image, class: "image") %>
         <% else %>  
           <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary me-3" %>
           <%= link_to "Login", new_user_session_path, class: "btn btn-primary me-3"  %>
         <%end%>
-        <button type="button" class="btn btn-primary me-3">
-          Sign up for free
-        </button>
-        <a
-          class="btn btn-dark px-3"
-          href="https://github.com/mdbootstrap/mdb-ui-kit"
-          role="button"
-          ><i class="fab fa-github"></i
-        ></a>
       </div>
     </div>
     <!-- Collapsible wrapper -->

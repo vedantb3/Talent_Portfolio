@@ -40,16 +40,23 @@
       <table class="table table-bordered table-responsive-md table-striped text-center">
         <thead>
           <tr>
-            <th class="text-center">Title</th>
-            <th class="text-center">Description</th>                        
+            <th class="text-center">S. No.</th>
+            <th class="text-center">Title</th>              
+            <th class="text-center">Edit</th>
             <th class="text-center">Remove</th>
           </tr>
         </thead>
         <tbody>
-        <% @blogs.each do |blog| %>
+        <% @blogs.each_with_index do |blog , i| %>
           <tr>
+            <td class="pt-3-half" ><%= i+1 %></td>
             <td class="pt-3-half" ><%= link_to blog.title, blog %></td>
-            <td class="pt-3-half" ><%= blog.body %></td>                       
+            <td>
+            <span class="table-remove"
+                ><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+                  Edit
+                </button></span
+            </td>                    
             <td>
               <span class="table-remove"
                 ><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
@@ -61,6 +68,7 @@
                 data: { confirm: "Are you sure?"} ,class: "btn btn-danger btn-rounded btn-sm my-0" %></span
               >
             </td>
+           
           </tr>   
         <% end %>         
         </tbody>

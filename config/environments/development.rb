@@ -75,12 +75,14 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  config.action_mailer.delivery_method = :sendmail
 # Defaults to:
 # config.action_mailer.sendmail_settings = {
 #   location: '/usr/sbin/sendmail',
 #   arguments: '-i'
 # }
+
+# config.hosts << /*\.ngrok\.io/
+config.hosts << "50b0-2409-4043-4e85-23d3-9431-9bb6-7fff-4508.ngrok.io"
 config.action_mailer.perform_deliveries = true
 config.action_mailer.raise_delivery_errors = true
 config.action_mailer.default_options = {from: 'vebansal@bestpeers.com'}
@@ -89,9 +91,9 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
 address:              'smtp.gmail.com',
 port:                 587,
-domain:               'vebansal@bestpeers.com',
-user_name:            'vebansal@bestpeers.com',
-password:             'Vedant@99',
+domain:               'localhost',
+user_name:            'bansalvedant52@gmail.com',
+password:             '9098844395',
 authentication:       'plain',
 enable_starttls_auto: true  }
 end
